@@ -1,0 +1,434 @@
+
+C:\Users\Administrador>sqlplus/nolog
+
+SQL*Plus: Release 11.2.0.2.0 Production on Mar Nov 19 10:06:21 2019
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> conn sys/oracle as sysdba
+Connected.
+SQL> create user Diego IDENTIFIED BY 1234;
+create user Diego IDENTIFIED BY 1234
+            *
+ERROR at line 1:
+ORA-01920: user name 'DIEGO' conflicts with another user or role name
+
+
+SQL> create user Cayllahua IDENTIFIED BY 1234;
+
+User created.
+
+SQL> GRANT connect, resource TO Cayllahua;
+
+Grant succeeded.
+
+SQL> connect Cayllahua/1234;
+Connected.
+SQL> show user
+USER is "CAYLLAHUA"
+SQL> show parameter
+ORA-00942: table or view does not exist
+
+
+SQL> create table categoria(
+  2  codigo int primary key,
+  3  descripcion varchar2(20) not null);
+
+Table created.
+
+SQL> drop table categoria;
+
+Table dropped.
+
+SQL> create table categoria(
+  2  codigo int primary key not null auto_increment,
+  3  descripcion varchar2(20) not null);
+codigo int primary key not null auto_increment,
+                                *
+ERROR at line 2:
+ORA-00907: missing right parenthesis
+
+
+SQL> drop table categoria;
+drop table categoria
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> create table categoria(
+  2  codigo int primary key not null,
+  3  descripcion varchar2(20) not null);
+
+Table created.
+
+SQL> create sequence sq_categoria;
+
+Sequence created.
+
+SQL> INSERT INTO categoria
+  2  VALUES(sq_categoria.nextval,'arroz'),(sq_categoria.netxval,'leche');
+VALUES(sq_categoria.nextval,'arroz'),(sq_categoria.netxval,'leche')
+                                    *
+ERROR at line 2:
+ORA-00933: SQL command not properly ended
+
+
+SQL> INSERT INTO categoria
+  2  VALUES(sq_categoria.nextal,'arroz');
+VALUES(sq_categoria.nextal,'arroz')
+                    *
+ERROR at line 2:
+ORA-00984: column not allowed here
+
+
+SQL> INSERT INTO categoria
+  2  VALUES
+  3  VALUES
+  4
+SQL> INSERT INTO categoria
+  2  VALUES(sq_categoria.nextval,'arroz');
+
+1 row created.
+
+SQL> INSERT INTO categoria
+  2  VALUES(sq_categoria.nextval,'leche');
+
+1 row created.
+
+SQL> create table usuario(
+  2  codigo int primary key,
+  3  nombre varchar2(20) not null,
+  4  pass varchar2(20) not null);
+
+Table created.
+
+SQL> create sequence sq_usuario;
+
+Sequence created.
+
+SQL> INSERT INTO usuario
+  2  VALUES(sq_usuario.nextval,'diego','1234');
+
+1 row created.
+
+SQL> INSERT INTO usuario
+  2  VALUES(sq_usuario.nextval,'jose','4321');
+
+1 row created.
+
+SQL> create table producto(
+  2  codigo int primary key,
+  3  nombre varchar2(20),
+  4  precio_unitario double);
+precio_unitario double)
+                      *
+ERROR at line 4:
+ORA-00905: missing keyword
+
+
+SQL> create table producto(
+  2  codigo int primary key,
+  3  nombre varchar2(20),
+  4  precio_unitario NUMBER(6,2));
+
+Table created.
+
+SQL> create sequence sq_producto;
+
+Sequence created.
+
+SQL> INSERT INTO producto
+  2  VALUES(sq_producto.nextval,'azucar',323.23);
+
+1 row created.
+
+SQL> INSERT INTO producto
+  2  VALUES(sq_producto.nextval,'sal',342.44);
+
+1 row created.
+
+SQL> select * from categoria;
+
+    CODIGO DESCRIPCION
+---------- --------------------
+         1 arroz
+         2 leche
+
+SQL> select * from usuario;
+
+    CODIGO NOMBRE               PASS
+---------- -------------------- --------------------
+         1 diego                1234
+         2 jose                 4321
+
+SQL> select * from producto;
+
+    CODIGO NOMBRE               PRECIO_UNITARIO
+---------- -------------------- ---------------
+         1 azucar                        323,23
+         2 sal                           342,44
+
+SQL> C:\Users\Administrador>sqlplus/nolog
+SP2-0023: String not found.
+SQL>
+SQL> SQL*Plus: Release 11.2.0.2.0 Production on Mar Nov 19 10:06:21 2019
+SP2-0734: unknown command beginning "SQL*Plus: ..." - rest of line ignored.
+SQL>
+SQL> Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+SP2-0734: unknown command beginning "Copyright ..." - rest of line ignored.
+SQL>
+SQL> SQL> conn sys/oracle as sysdba
+SP2-0734: unknown command beginning "SQL> conn ..." - rest of line ignored.
+SQL> Connected.
+SP2-0042: unknown command "Connected." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> SQL> create user Diego IDENTIFIED BY 1234;
+SP2-0734: unknown command beginning "SQL> creat..." - rest of line ignored.
+SQL> create user Diego IDENTIFIED BY 1234
+  2              *
+  3  ERROR at line 1:
+  4  ORA-01920: user name 'DIEGO' conflicts with another user or role name
+  5
+SQL>
+SQL> SQL> create user Cayllahua IDENTIFIED BY 1234;
+SP2-0734: unknown command beginning "SQL> creat..." - rest of line ignored.
+SQL>
+SQL> User created.
+SP2-0734: unknown command beginning "User creat..." - rest of line ignored.
+SQL>
+SQL> SQL> GRANT connect, resource TO Cayllahua;
+SP2-0734: unknown command beginning "SQL> GRANT..." - rest of line ignored.
+SQL>
+SQL> Grant succeeded.
+  2
+SQL> SQL> connect Cayllahua/1234;
+SP2-0734: unknown command beginning "SQL> conne..." - rest of line ignored.
+SQL> Connected.
+SP2-0042: unknown command "Connected." - rest of line ignored.
+SQL> SQL> show user
+SP2-0734: unknown command beginning "SQL> show ..." - rest of line ignored.
+SQL> USER is "CAYLLAHUA"
+SP2-0734: unknown command beginning "USER is "C..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> SQL> show parameter
+SP2-0734: unknown command beginning "SQL> show ..." - rest of line ignored.
+SQL> ORA-00942: table or view does not exist
+SP2-0734: unknown command beginning "ORA-00942:..." - rest of line ignored.
+SQL>
+SQL>
+SQL> SQL> create table categoria(
+SP2-0734: unknown command beginning "SQL> creat..." - rest of line ignored.
+SQL>   2  codigo int primary key,
+SQL>   3  descripcion varchar2(20) not null);
+SQL>
+SQL> Table created.
+SP2-0734: unknown command beginning "Table crea..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL>
+SQL> SQL> drop table categoria;
+SP2-0734: unknown command beginning "SQL> drop ..." - rest of line ignored.
+SQL>
+SQL> Table dropped.
+SP2-0734: unknown command beginning "Table drop..." - rest of line ignored.
+SQL>
+SQL> SQL> create table categoria(
+SP2-0734: unknown command beginning "SQL> creat..." - rest of line ignored.
+SQL>   2  codigo int primary key not null auto_increment,
+SQL>   3  descripcion varchar2(20) not null);
+SQL> codigo int primary key not null auto_increment,
+SP2-0734: unknown command beginning "codigo int..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL>                                 *
+SP2-0042: unknown command "*" - rest of line ignored.
+SQL> ERROR at line 2:
+SP2-0734: unknown command beginning "ERROR at l..." - rest of line ignored.
+SQL> ORA-00907: missing right parenthesis
+SP2-0734: unknown command beginning "ORA-00907:..." - rest of line ignored.
+SQL>
+SQL>
+SQL> SQL> drop table categoria;
+SP2-0734: unknown command beginning "SQL> drop ..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> drop table categoria
+  2             *
+  3  ERROR at line 1:
+  4  ORA-00942: table or view does not exist
+  5
+SQL>
+SQL> SQL> create table categoria(
+SP2-0734: unknown command beginning "SQL> creat..." - rest of line ignored.
+SQL>   2  codigo int primary key not null,
+SQL>   3  descripcion varchar2(20) not null);
+SQL>
+SQL> Table created.
+SP2-0734: unknown command beginning "Table crea..." - rest of line ignored.
+SQL>
+SQL> SQL> create sequence sq_categoria;
+SP2-0734: unknown command beginning "SQL> creat..." - rest of line ignored.
+SQL>
+SQL> Sequence created.
+SP2-0734: unknown command beginning "Sequence c..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL>
+SQL> SQL> INSERT INTO categoria
+SP2-0734: unknown command beginning "SQL> INSER..." - rest of line ignored.
+SQL>   2  VALUES(sq_categoria.nextval,'arroz'),(sq_categoria.netxval,'leche');
+SQL> VALUES(sq_categoria.nextval,'arroz'),(sq_categoria.netxval,'leche')
+SP2-0734: unknown command beginning "VALUES(sq_..." - rest of line ignored.
+SQL>                                     *
+SP2-0042: unknown command "*" - rest of line ignored.
+SQL> ERROR at line 2:
+SP2-0734: unknown command beginning "ERROR at l..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> ORA-00933: SQL command not properly ended
+SP2-0734: unknown command beginning "ORA-00933:..." - rest of line ignored.
+SQL>
+SQL>
+SQL> SQL> INSERT INTO categoria
+SP2-0734: unknown command beginning "SQL> INSER..." - rest of line ignored.
+SQL>   2  VALUES(sq_categoria.nextal,'arroz');
+SQL> VALUES(sq_categoria.nextal,'arroz')
+SP2-0734: unknown command beginning "VALUES(sq_..." - rest of line ignored.
+SQL>                     *
+SP2-0042: unknown command "*" - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> ERROR at line 2:
+SP2-0734: unknown command beginning "ERROR at l..." - rest of line ignored.
+SQL> ORA-00984: column not allowed here
+SP2-0734: unknown command beginning "ORA-00984:..." - rest of line ignored.
+SQL>
+SQL>
+SQL> SQL> INSERT INTO categoria
+SP2-0734: unknown command beginning "SQL> INSER..." - rest of line ignored.
+SQL>   2  VALUES
+SQL>   3  VALUES
+SQL>   4
+  4* ORA-00942: table or view does not exist
+SQL> SQL> INSERT INTO categoria
+SP2-0734: unknown command beginning "SQL> INSER..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL>   2  VALUES(sq_categoria.nextval,'arroz');
+SQL>
+SQL> 1 row created.
+SQL>
+SQL> SQL> INSERT INTO categoria
+SP2-0734: unknown command beginning "SQL> INSER..." - rest of line ignored.
+SQL>   2  VALUES(sq_categoria.nextval,'leche');
+SQL>
+SQL> 1 row created.
+SQL>
+SQL> SQL> create table usuario(
+SP2-0734: unknown command beginning "SQL> creat..." - rest of line ignored.
+SQL>   2  codigo int primary key,
+SQL>   3  nombre varchar2(20) not null,
+SQL>   4  pass varchar2(20) not null);
+SQL>
+SQL> Table created.
+SP2-0734: unknown command beginning "Table crea..." - rest of line ignored.
+SQL>
+SQL> SQL> create sequence sq_usuario;
+SP2-0734: unknown command beginning "SQL> creat..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL>
+SQL> Sequence created.
+SP2-0734: unknown command beginning "Sequence c..." - rest of line ignored.
+SQL>
+SQL> SQL> INSERT INTO usuario
+SP2-0734: unknown command beginning "SQL> INSER..." - rest of line ignored.
+SQL>   2  VALUES(sq_usuario.nextval,'diego','1234');
+SQL>
+SQL> 1 row created.
+SQL>
+SQL> SQL> INSERT INTO usuario
+SP2-0734: unknown command beginning "SQL> INSER..." - rest of line ignored.
+SQL>   2  VALUES(sq_usuario.nextval,'jose','4321');
+SQL>
+SQL> 1 row created.
+SQL>
+SQL> SQL> create table producto(
+SP2-0734: unknown command beginning "SQL> creat..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL>   2  codigo int primary key,
+SQL>   3  nombre varchar2(20),
+SQL>   4  precio_unitario double);
+SQL> precio_unitario double)
+SP2-0734: unknown command beginning "precio_uni..." - rest of line ignored.
+SQL>                       *
+SP2-0042: unknown command "*" - rest of line ignored.
+SQL> ERROR at line 4:
+SP2-0734: unknown command beginning "ERROR at l..." - rest of line ignored.
+SQL> ORA-00905: missing keyword
+SP2-0734: unknown command beginning "ORA-00905:..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL>
+SQL>
+SQL> SQL> create table producto(
+SP2-0734: unknown command beginning "SQL> creat..." - rest of line ignored.
+SQL>   2  codigo int primary key,
+SQL>   3  nombre varchar2(20),
+SQL>   4  precio_unitario NUMBER(6,2));
+SQL>
+SQL> Table created.
+SP2-0734: unknown command beginning "Table crea..." - rest of line ignored.
+SQL>
+SQL> SQL> create sequence sq_producto;
+SP2-0734: unknown command beginning "SQL> creat..." - rest of line ignored.
+SQL>
+SQL> Sequence created.
+SP2-0734: unknown command beginning "Sequence c..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL>
+SQL> SQL> INSERT INTO producto
+SP2-0734: unknown command beginning "SQL> INSER..." - rest of line ignored.
+SQL>   2  VALUES(sq_producto.nextval,'azucar',323.23);
+SQL>
+SQL> 1 row created.
+SQL>
+SQL> SQL> INSERT INTO producto
+SP2-0734: unknown command beginning "SQL> INSER..." - rest of line ignored.
+SQL>   2  VALUES(sq_producto.nextval,'sal',342.44);
+SQL>
+SQL> 1 row created.
+SQL>
+SQL> SQL> select * from categoria;
+SP2-0734: unknown command beginning "SQL> selec..." - rest of line ignored.
+SQL>
+SQL>     CODIGO DESCRIPCION
+SP2-0734: unknown command beginning "CODIGO DES..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> ---------- --------------------
+SQL>          1 arroz
+SQL>          2 leche
+SQL>
+SQL> SQL> select * from usuario;
+SP2-0734: unknown command beginning "SQL> selec..." - rest of line ignored.
+SQL>
+SQL>     CODIGO NOMBRE               PASS
+SP2-0734: unknown command beginning "CODIGO NOM..." - rest of line ignored.
+SQL> ---------- -------------------- --------------------
+SQL>          1 diego                1234
+SQL>          2 jose                 4321
+SQL>
+SQL> SQL> select * from producto;
+SP2-0734: unknown command beginning "SQL> selec..." - rest of line ignored.
+SQL>
+SQL>     CODIGO NOMBRE               PRECIO_UNITARIO
+SP2-0734: unknown command beginning "CODIGO NOM..." - rest of line ignored.
+SQL> ---------- -------------------- ---------------
+SQL>          1 azucar                        323,23
+SQL>          2 sal                           342,44"
